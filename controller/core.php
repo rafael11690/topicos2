@@ -1,44 +1,32 @@
 <?php
 
-include("settings.inc");
+include_once 'userDAO.php';
 
-function con_db ($login, $senha) {
-	$con = mysql_connect($GLOBALS['urlDB'],$GLOBALS['userDB'],$GLOBALS['passwordDB']);
-	if (!$con) {
-		header('Location: login.php?ms=3');
-		exit("3");
-	}
+function logon ($login, $password) {
+    $controller = new userDAO();
+    $user = $controller->getUser($login, $password);
 
-	$db = mysql_select_db("tp3", $con);
-
-	$query = 'SELECT nome FROM usuario WHERE login ="'.$login.'" AND senha = "'.$senha.'"';
-	$result = mysql_query($query);
-
-	if (!$result) {
-		return null;
-	} else {
-		$r = mysql_fetch_assoc($result);
-		return $r['nome'];
-	}
-}
-
-function logon ($nome) {
-	$time = time()+3600;
-	setcookie("user", $nome, $time);
+    start_session();
+    $_SESSION['login'] = $user->getLogin();
+    $_SESSION['privilege'] = $user->getPrivilege();
 }
 
 function logoff () {
-	$time = time()-3600;
-	setcookie("user", "", $time);
-	header('Location: login.php?ms=1');
+        start_session();
+        unset($_SESSION['login']);
+        unset($_SESSION['privilege']);
+	header('Location: ../admin/login.php?ms=1');
 	exit("1");
 }
 
 function isLogged () {
-	if (!$_COOKIE['user']) {
-		header('Location: login.php?ms=2');
-		exit("2");
-	}
+    start_session();
+    if (!isset($_SESSION['login'])) {
+        header('Location: ../admin/login.php?ms=0');
+        exit("0");
+    } else {
+        return $_SESSION['privilege'];
+    }
 }
 
 ?>

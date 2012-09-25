@@ -1,6 +1,6 @@
 <?php
 
-$id_msg = $_GET['ms'];
+$id_msg = (isset($_GET['ms'])) ? $_GET['ms'] : '';
 
 switch ($id_msg) {
 
@@ -37,10 +37,10 @@ function form_focus() {
 <body onload="form_focus();">
 <br /><br />
 <div id="box">
-	<form name="form1" action="valida.php" method="post" id="form_login">
+	<form name="form1" action="validate_login.php" method="post" id="form_login">
 		<br />
-		<label>Usu&aacute;rio: </label><input type="text" name="login" value="fulano84" /><br /><br />
-		<label>Senha: </label><input type="password" name="senha" value="123456" /><br /><br />
+		<label>Usu&aacute;rio: </label><input type="text" name="login" value="jan" /><br /><br />
+		<label>Senha: </label><input type="password" name="password" value="123456" /><br /><br />
 		<span><input type="submit" value="Entrar" id="btn_entrar" /><span><br /><br />
 		<span id="msg"><?php echo $msg; ?></span>
 	</form>
