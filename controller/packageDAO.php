@@ -71,8 +71,20 @@ class packageDAO {
         $r->execute();
     }
 
+    public function insert($package) {
+        $con = new bd();
+
+        $sql = 'INSERT INTO package (id_city, name, description, price, price_promo, date_start, date_end, id_user) VALUES 
+            (' . $package->getIdCity() . ', "' . $package->getName() . '", 
+            "' . $package->getDescription() . '", ' . $package->getPrice() . ', 
+                ' . $package->getPricePromo() . ', "' . $package->getDateStart() . ', "' . $package->getDateEnd() . '", 
+                    ' . $package->getIdUser() . ')';
+
+        $r = $con->prepare($sql);
+        $r->execute();
+    }
+
     public function update($package) {
-        $package = new package();
         $con = new bd();
 
         $sql = 'UPDATE package SET id_city=' . $package->getIdCity() . ', name="' . $package->getName() . '", 
