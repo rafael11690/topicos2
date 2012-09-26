@@ -51,7 +51,10 @@ if (isset($_REQUEST['update_id'])) {
                             <td>Cidade: </td>
                         <?php if ($id!=-1) : ?>
                             <td><?php echo $city->getName(); ?>"</td>
-                        <?php else : ?>
+                        <?php
+                            else :
+                                
+                        ?>
                             <td><?php echo $city->getName(); ?>"</td>
                         <?php endif; ?>
                         </tr>

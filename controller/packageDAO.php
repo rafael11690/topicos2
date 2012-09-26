@@ -117,7 +117,7 @@ class packageDAO {
 
         $sql = 'UPDATE package SET id_city=' . $package->getIdCity() . ', name="' . $package->getName() . '", 
             description="' . $package->getDescription() . '", price=' . $package->getPrice() . ', 
-                price_promo=' . $package->getPricePromo() . ', date_start="' . $package->getDateStart() . ', date_end="' . $package->getDateEnd() . '", 
+                price_promo=' . $package->getPricePromo() . ', date_start="' . $package->getDateStart() . '", date_end="' . $package->getDateEnd() . '", 
                     id_user=' . $package->getIdUser() . ' WHERE idpackage=' . $package->getIdPackage();
 
         $r = $con->prepare($sql);
