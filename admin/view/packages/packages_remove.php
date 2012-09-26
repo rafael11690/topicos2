@@ -1,5 +1,5 @@
 <?php
-include_once '../../../settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/topicos2/settings.php';
 include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/packageDAO.php';
 include_once _URL . 'controller/cityDAO.php';
@@ -30,9 +30,9 @@ if ((isset($_GET['page'])) && ($_GET['qty'])) {
         </div>
         <div id="sidebar">
             <ul>
-                <li><a href="'._URL.'admin/view/packages/packages.php">Editar</a></li>
-                <li><a href="'._URL.'admin/view/packages/packages_add.php">Cadastrar</a></li>
-                <li><a href="'._URL.'admin/view/packages/packages_remove.php">Remover</a></li>
+                <li><a href="<?php echo _HTTP; ?>admin/view/packages/packages.php">Editar</a></li>
+                <li><a href="<?php echo _HTTP; ?>admin/view/packages/packages_update.php">Cadastrar</a></li>
+                <li><a href="<?php echo _HTTP; ?>admin/view/packages/packages_remove.php">Remover</a></li>
             </ul>
         </div>
         <div id="content">
@@ -52,9 +52,7 @@ if ((isset($_GET['page'])) && ($_GET['qty'])) {
                         
                         $controller = new packageDAO();
                         $packages = $controller->getPackages($page, $qty);
-                        echo '<!--';
-                        print_r($packages);
-                        echo '-->';
+
                         foreach ($packages as $key => $value) :
                             
                             $controller2 = new cityDAO();

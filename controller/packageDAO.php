@@ -1,5 +1,6 @@
 <?php
 
+include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/topicos2/settings.php';
 include_once 'bd.php';
 include_once _URL . 'model/package.php';
 
@@ -10,6 +11,33 @@ class packageDAO {
         $con = new bd();
 
         $sql = 'Select * from package where id_city=' . $idCity;
+
+        $r = $con->prepare($sql);
+        $r->execute();
+
+        $result = $r->fetch();
+
+        $package = new package(
+                        $result['idpackage'],
+                        $result['id_city'],
+                        $result['name'],
+                        $result['description'],
+                        $result['price'],
+                        $result['price_promo'],
+                        $result['date_start'],
+                        $result['date_end'],
+                        $result['id_user'],
+                        $result['flag']
+        );
+
+        return $package;
+    }
+    
+    public function getPackageById($id) {
+
+        $con = new bd();
+
+        $sql = 'Select * from package where idpackage=' . $id;
 
         $r = $con->prepare($sql);
         $r->execute();
