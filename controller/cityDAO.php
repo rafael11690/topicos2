@@ -82,6 +82,33 @@ class cityDAO {
 
         return $cities;
     }
+    
+    public function listCities() {
+
+        $con = new bd();
+
+        $sql = 'Select * from city';
+
+        $r = $con->prepare($sql);
+        $r->execute();
+
+        $cities = array();
+        while ($result = $r->fetch()) {
+
+            $cities[] = new city(
+                            $result['idcity'],
+                            $result['name'],
+                            $result['state'],
+                            $result['country'],
+                            $result['description'],
+                            $result['thumbnail'],
+                            $result['id_gallery'],
+                            $result['id_user']
+            );
+        }
+
+        return $cities;
+    }
 
 }
 

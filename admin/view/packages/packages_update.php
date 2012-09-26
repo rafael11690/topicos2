@@ -47,12 +47,14 @@ if (isset($_REQUEST['update_id'])) {
                             <td>Nome: </td>
                             <td><input type="text" name="name" value="<?php if ($id!=-1) echo $package->getName(); ?>" /></td>
                         </tr>
-                        <?php if ($id!=-1) : ?>
                         <tr>
                             <td>Cidade: </td>
+                        <?php if ($id!=-1) : ?>
                             <td><?php echo $city->getName(); ?>"</td>
-                        </tr>
+                        <?php else : ?>
+                            <td><?php echo $city->getName(); ?>"</td>
                         <?php endif; ?>
+                        </tr>
                         <tr>
                             <td>Preço: </td>
                             <td><input type="text" name="price" value="<?php if ($id!=-1) echo $package->getPrice(); ?>" /></td>
@@ -75,6 +77,7 @@ if (isset($_REQUEST['update_id'])) {
                         </tr>
                     </tbody>
                 </table>
+                <input type="hidden" name="type" value="<?php if ($id!=-1) echo 'insert'; else echo 'update'; ?>" />
                 <input type="submit" value="Atualizar" />
             </form>
         </div>

@@ -16,6 +16,14 @@ if ($_POST['name']) {
             0,
             1
         );
+    
+    $controller = new packageDAO();
+    
+    if ($_POST['type']=='insert') {
+        $controller->insert($package);
+    } else {
+        $controller->update($package);
+    }
             
 }
 
