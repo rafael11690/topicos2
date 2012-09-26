@@ -1,0 +1,73 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+html, body {
+    height:100%;
+}
+
+body {
+    margin:auto 10px;
+    background:#FC0;
+}
+
+ul, li {
+    list-style:none;
+}
+
+#menu {
+    width:100%;
+}
+
+#menu li {
+    display:inline-block;
+}
+
+#menu a {
+    display:block;
+    padding:25px 35px;
+    font-size:20px;
+}
+
+#sidebar {
+    width:180px;
+    float:right;
+}
+
+#content {
+    background:#FFF;
+    margin:0 180px 0 0;
+    height:90%;
+    display:block;
+}
+
+/* Login */
+
+#box {
+	display:block;
+	width:300px;
+	text-align:center;
+	margin: 0 auto;
+	background-color:#fff;
+	padding:15px;
+	-moz-border-radius:25px;
+	border-radius:25px;
+}
+
+#form_login label, #form_login input {
+	float:left;
+}
+
+#form_login label {
+	display:block;
+	width:70px;
+	text-align:right;
+	padding: 0 10px 0 0;
+}
+
+#msg {
+	font-size:11px;
+	color:#f00;
+}
+

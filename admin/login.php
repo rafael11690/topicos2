@@ -26,7 +26,7 @@ switch ($id_msg) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="style/admin.css" />
 <script>
 function form_focus() {
 	document.forms['form1']['login'].focus();
