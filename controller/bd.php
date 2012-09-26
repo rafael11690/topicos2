@@ -2,10 +2,9 @@
 
 class bd extends PDO {
 
-  //  private $dsn = 'mysql:dbname=lpd;host=localhost;port=3306';
-    private $dsn = 'mysql:dbname=recurso;host=192.168.0.254;port=3306';
-    private $user = 'lpd';
-    private $password = 'lpd';
+    private $dsn = 'mysql:dbname=dietsmar_topicos2;host=50.31.138.79;port=3306';
+    private $user = 'dietsmar_topico2';
+    private $password = '123mudar';
     private static $link = null;
 
     function __construct() {

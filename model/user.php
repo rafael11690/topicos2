@@ -1,24 +1,27 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 class user {
 
-    private $idUser;
+    private $id;
     private $login;
     private $password;
     private $name;
     private $privilege;
-
-    public function getIdUser() {
-        return $this->idUser;
+    
+    function __construct($id, $login, $password, $name, $privilege) {
+        $this->id = $id;
+        $this->login = $login;
+        $this->password = $password;
+        $this->name = $name;
+        $this->privilege = $privilege;
     }
 
-    public function setIdUser($idUser) {
-        $this->idUser = $idUser;
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
     }
 
     public function getLogin() {
@@ -52,6 +55,7 @@ class user {
     public function setPrivilege($privilege) {
         $this->privilege = $privilege;
     }
+
 
 }
 
