@@ -10,6 +10,11 @@ class gallery {
     private $idGallery;
     private $idCity;
 
+    function __construct($idGallery, $idCity) {
+        $this->idGallery = $idGallery;
+        $this->idCity = $idCity;
+    }
+
     public function getIdGallery() {
         return $this->idGallery;
     }

@@ -16,6 +16,17 @@ class city {
     private $idGallery;
     private $idUser;
 
+    function __construct($idCity, $name, $state, $country, $description, $thumbnail, $idGallery, $idUser) {
+        $this->idCity = $idCity;
+        $this->name = $name;
+        $this->state = $state;
+        $this->country = $country;
+        $this->description = $description;
+        $this->thumbnail = $thumbnail;
+        $this->idGallery = $idGallery;
+        $this->idUser = $idUser;
+    }
+
     public function getIdCity() {
         return $this->idCity;
     }

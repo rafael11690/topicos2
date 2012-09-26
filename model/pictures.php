@@ -12,6 +12,13 @@ class pictures {
     private $url;
     private $legend;
 
+    function __construct($idPictures, $idGallery, $url, $legend) {
+        $this->idPictures = $idPictures;
+        $this->idGallery = $idGallery;
+        $this->url = $url;
+        $this->legend = $legend;
+    }
+
     public function getIdPictures() {
         return $this->idPictures;
     }

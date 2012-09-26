@@ -22,6 +22,23 @@ class form {
     private $phone;
     private $newsletter;
 
+    function __construct($idForm, $idPackage, $firstName, $lastName, $guestsNumber, $coupleRoom, $individualRoom, $doubleRoom, $tripleRoom, $observation, $email, $areaCode, $phone, $newsletter) {
+        $this->idForm = $idForm;
+        $this->idPackage = $idPackage;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->guestsNumber = $guestsNumber;
+        $this->coupleRoom = $coupleRoom;
+        $this->individualRoom = $individualRoom;
+        $this->doubleRoom = $doubleRoom;
+        $this->tripleRoom = $tripleRoom;
+        $this->observation = $observation;
+        $this->email = $email;
+        $this->areaCode = $areaCode;
+        $this->phone = $phone;
+        $this->newsletter = $newsletter;
+    }
+
     public function getIdForm() {
         return $this->idForm;
     }
