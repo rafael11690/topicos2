@@ -37,7 +37,12 @@ include_once _URL . 'controller/packageDAO.php';
                     }
                     
                     $controller2 = new packageDAO();
-                    $packages = $controller2->getPackages($page, $qty);
+                    
+                    if (isset($_GET['city'])) {
+                        $packages = $controller2->getPackages($page, $qty);
+                    } else {
+                        $packages = $controller2->getPackages($page, $qty);
+                    }
                     foreach ($packages as $package) :
                         $controller3 = new cityDAO();
                         $city = $controller3->getCityById($package->getIdCity());
@@ -47,10 +52,13 @@ include_once _URL . 'controller/packageDAO.php';
                             <li><?php echo $package->getName(); ?></li>
                             <li><?php echo $city->getName(); ?></li>
                             <li><?php echo $package->getPrice(); ?></li>
+                            <?php if ($package->getPricePromo()) : ?>
+                            <li><?php echo $package->getPricePromo(); ?></li>
+                            <?php endif; ?>
                             <li><?php echo $package->getDateStart(); ?></li>
                             <li><?php echo $package->getDateEnd(); ?></li>
                         </ul>
-                        <a href="packge.php?package=<?php echo $packages[$key]->getIdPackage(); ?>">Ver mais...</a>
+                        <a href="package.php?package=<?php echo $package->getIdPackage(); ?>">Ver mais...</a>
                     </div>
                     <?php endforeach; ?>
             </div>

@@ -62,6 +62,36 @@ class packageDAO {
         return $package;
     }
 
+    public function getPackagesByIdCity($id) {
+
+        $con = new bd();
+
+        $sql = 'Select * from package WHERE flag=1 AND id_city='.$id;
+
+        $r = $con->prepare($sql);
+        $r->execute();
+
+        $packages = array();
+        while ($result = $r->fetch()) {
+
+            $packages[] = new package(
+                            $result['idpackage'],
+                            $result['id_city'],
+                            $result['name'],
+                            $result['description'],
+                            $result['price'],
+                            $result['price_promo'],
+                            $result['date_start'],
+                            $result['date_end'],
+                            $result['id_user'],
+                            $result['flag'],
+                            $result['thumbnail']
+            );
+        }
+
+        return $packages;
+    }
+    
     public function getPackages($page, $qty) {
 
         $con = new bd();
