@@ -105,7 +105,7 @@ class packageDAO {
         $sql = 'INSERT INTO package (id_city, name, description, price, price_promo, date_start, date_end, id_user) VALUES 
             (' . $package->getIdCity() . ', "' . $package->getName() . '", 
             "' . $package->getDescription() . '", ' . $package->getPrice() . ', 
-                ' . $package->getPricePromo() . ', "' . $package->getDateStart() . ', "' . $package->getDateEnd() . '", 
+                ' . $package->getPricePromo() . ', "' . $package->getDateStart() . '", "' . $package->getDateEnd() . '", 
                     ' . $package->getIdUser() . ')';
 
         $r = $con->prepare($sql);
