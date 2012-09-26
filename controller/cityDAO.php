@@ -29,7 +29,7 @@ class cityDAO {
 
         return $city;
     }
-    
+
     public function getCityById($id) {
 
         $con = new bd();
@@ -80,6 +80,19 @@ class cityDAO {
         }
 
         return $cities;
+    }
+
+    public function insert($city) {
+        $city = new city();
+        $con = new bd();
+
+        $sql = 'INSERT INTO city (name, state, country, description, thumbnail, id_gallery, id_user) VALUES 
+            ("' . $city->getName() . '", "' . $city->getState() . '", 
+            "' . $city->getCountry() . '", "' . $city->getDescription() . '", 
+                "' . $city->getThumbnail() . '", ' . $city->getIdGallery() . ', ' . $city->getIdUser() . ')';
+
+        $r = $con->prepare($sql);
+        $r->execute();
     }
 
 }
