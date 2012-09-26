@@ -1,7 +1,7 @@
 <?php
 
 include_once 'bd.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/model/user.php';
+include_once _URL.'model/user.php';
 
 class userDAO {
 

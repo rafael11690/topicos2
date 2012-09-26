@@ -6,11 +6,16 @@ function logon($login, $password) {
     $controller = new userDAO();
     $user = $controller->getUser($login, $password);
 
-    session_start();
-    $_SESSION['login'] = $user->getLogin();
-    $_SESSION['privilege'] = $user->getPrivilege();
-    
-    header('Location: ../admin/view/packages.php');
+    if ($user) {
+        session_start();
+        $_SESSION['login'] = $user->getLogin();
+        $_SESSION['privilege'] = $user->getPrivilege();
+
+        header('Location: ../admin/view/packages/packages.php');
+    } else {
+        header('Location: ../admin/login.php?ms=0');
+        exit("0");
+    }
 }
 
 function logoff() {
@@ -34,11 +39,11 @@ function isLogged() {
 function getMenuAdmin($privilege) {
     echo '<ul>';
     if ($privilege == 0) {
-        echo '<li><a href="#">Pacotes</a></li>
-              <li><a href="#">Cidades</a></li>';
+        echo '<li><a href="' . _URL . 'admin/view/packages/packages.php">Pacotes</a></li>
+              <li><a href="' . _URL . 'admin/view/city/city.php">Cidades</a></li>';
     }
-    echo '<li><a href="#">Galeria</a></li>
-          <li><a href="#">Reservas</a></li>
+    echo '<li><a href="' . _URL . 'admin/view/gallery/gallery.php">Galeria</a></li>
+          <li><a href="' . _URL . 'admin/view/reserve/reserve.php">Reservas</a></li>
           </ul>';
 }
 

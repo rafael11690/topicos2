@@ -1,7 +1,7 @@
 <?php
 
 include_once 'bd.php';
-include_once '../model/package.php';
+include_once _URL . 'model/package.php';
 
 class packageDAO {
 
@@ -16,7 +16,7 @@ class packageDAO {
 
         $result = $r->fetch();
 
-        $package = new form(
+        $package = new package(
                         $result['idpackage'],
                         $result['id_city'],
                         $result['name'],
@@ -36,7 +36,7 @@ class packageDAO {
 
         $con = new bd();
 
-        $sql = 'Select * from package LIMIT '. $page .','.$qty;
+        $sql = 'Select * from package WHERE flag=1 LIMIT '. $page .','.$qty;
 
         $r = $con->prepare($sql);
         $r->execute();
@@ -44,7 +44,7 @@ class packageDAO {
         $packages = array();
         while ($result = $r->fetch()) {
 
-            $packages[] = new form(
+            $packages[] = new package(
                             $result['idpackage'],
                             $result['id_city'],
                             $result['name'],
@@ -59,6 +59,17 @@ class packageDAO {
         }
 
         return $packages;
+    }
+    
+    public function setFlag($id) {
+
+        $con = new bd();
+
+        $sql = 'UPDATE package SET flag=0 WHERE idpackage='.$id;
+
+        $r = $con->prepare($sql);
+        $r->execute();
+
     }
 
 }

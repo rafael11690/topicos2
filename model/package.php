@@ -17,6 +17,19 @@ class package {
     private $dateEnd;
     private $idUser;
     private $flag;
+    
+    function __construct($idPackage, $idCity, $name, $description, $price, $pricePromo, $dateStart, $dateEnd, $idUser, $flag) {
+        $this->idPackage = $idPackage;
+        $this->idCity = $idCity;
+        $this->name = $name;
+        $this->description = $description;
+        $this->price = $price;
+        $this->pricePromo = $pricePromo;
+        $this->dateStart = $dateStart;
+        $this->dateEnd = $dateEnd;
+        $this->idUser = $idUser;
+        $this->flag = $flag;
+    }
 
     public function getIdPackage() {
         return $this->idPackage;
