@@ -1,12 +1,10 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
-include_once _URL . 'controller/packageDAO.php';
-include_once _URL . 'model/package.php';
+include_once _URL . 'controller/cityDAO.php';
+include_once _URL . 'model/city.php';
 
 if ($_POST['name']) {
-
-    $pricePromo = (isset($_POST['pricePromo']) && ($_POST['pricePromo'] != "")) ? $_POST['pricePromo'] : 'NULL';
 
     if ((isset($_FILES["thumbnail"]))
             && (($_FILES["thumbnail"]["type"] == "image/gif")
@@ -31,30 +29,20 @@ if ($_POST['name']) {
         $thumbnail = '';
     }
 
-    $package = new package(
-                    $_POST['idpackage'],
-                    $_POST['id_city'],
+    $city = new city(
+                    0,
                     $_POST['name'],
+                    $_POST['state'],
+                    $_POST['country'],
                     $_POST['description'],
-                    $_POST['price'],
-                    $pricePromo,
-                    $_POST['dateStart'],
-                    $_POST['dateEnd'],
+                    $thumbnail,
                     1,
-                    1,
-                   $thumbnail
+                    1
     );
 
-    $controller = new packageDAO();
-    print_r($package);
-    if ($_POST['type'] == 'insert') {
-        $controller->insert($package);
-        echo $_POST['type'];
-    } else {
-        $controller->update($package);
-        echo $_POST['type'];
-    }
+    $controller = new cityDAO();
+    $controller->insert($city);
 
-    header('Location: packages.php?ms=1');
+    header('Location: city.php?ms=1');
 }
 ?>

@@ -5,11 +5,11 @@ include_once '../model/form.php';
 
 class formDAO {
 
-    public function getForm($idPackage) {
+    public function getForm($idForm) {
 
         $con = new bd();
 
-        $sql = 'Select * from form_interest where id_package=' . $idPackage;
+        $sql = 'Select * from form_interest where idform=' . $idForm;
 
         $r = $con->prepare($sql);
         $r->execute();

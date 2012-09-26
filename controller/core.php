@@ -39,11 +39,10 @@ function isLogged() {
 function getMenuAdmin($privilege) {
     echo '<ul>';
     if ($privilege == 0) {
-        echo '<li><a href="' . _URL . 'admin/view/packages/packages.php">Pacotes</a></li>
-              <li><a href="' . _URL . 'admin/view/city/city.php">Cidades</a></li>';
+        echo '<li><a href="' . _HTTP . 'admin/view/packages/packages.php">Pacotes</a></li>
+              <li><a href="' . _HTTP . 'admin/view/city/city.php">Cidades</a></li>';
     }
-    echo '<li><a href="' . _URL . 'admin/view/gallery/gallery.php">Galeria</a></li>
-          <li><a href="' . _URL . 'admin/view/reserve/reserve.php">Reservas</a></li>
+    echo '<li><a href="' . _HTTP . 'admin/view/reserve/reserve.php">Reservas</a></li>
           </ul>';
 }
 

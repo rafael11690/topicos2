@@ -32,15 +32,12 @@ $cities = $controller->getCities($page, $qty);
         </div>
         <div id="sidebar">
             <ul>
-                <li><a href="'._URL.'admin/view/city/city.php">Editar</a></li>
-                <li><a href="'._URL.'admin/view/city/city_add.php">Cadastrar</a></li>
-                <li><a href="'._URL.'admin/view/city/city_remove.php">Remover</a></li>
+                <li><a href="<?php echo _HTTP; ?>admin/view/city/city_insert.php">Cadastrar</a></li>
             </ul>
         </div>
         <div id="content">
             <table id="cities">
                 <thead>
-                    <th><input type="checkbox" id="selectAll" /></th>
                     <th>Nome</th>
                     <th>Estado</th>
                     <th>País</th>
@@ -50,7 +47,6 @@ $cities = $controller->getCities($page, $qty);
                     foreach ($cities as $key => $value) :
                     ?>
                     <tr>
-                        <td><input type="checkbox" name="<?php echo $cities[$key]->getIdCity(); ?>" /></td>
                         <td><?php echo $cities[$key]->getName(); ?></td>
                         <td><?php echo $cities[$key]->getState(); ?></td>
                         <td><?php echo $cities[$key]->getCountry(); ?></td>

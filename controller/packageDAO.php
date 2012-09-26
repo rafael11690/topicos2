@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
 include_once 'bd.php';
 include_once _URL . 'model/package.php';
 
@@ -27,12 +27,13 @@ class packageDAO {
                         $result['date_start'],
                         $result['date_end'],
                         $result['id_user'],
-                        $result['flag']
+                        $result['flag'],
+                        $result['thumbnail']
         );
 
         return $package;
     }
-    
+
     public function getPackageById($id) {
 
         $con = new bd();
@@ -54,12 +55,13 @@ class packageDAO {
                         $result['date_start'],
                         $result['date_end'],
                         $result['id_user'],
-                        $result['flag']
+                        $result['flag'],
+                        $result['thumbnail']
         );
 
         return $package;
     }
-    
+
     public function getPackages($page, $qty) {
 
         $con = new bd();
@@ -82,7 +84,8 @@ class packageDAO {
                             $result['date_start'],
                             $result['date_end'],
                             $result['id_user'],
-                            $result['flag']
+                            $result['flag'],
+                            $result['thumbnail']
             );
         }
 
@@ -102,11 +105,11 @@ class packageDAO {
     public function insert($package) {
         $con = new bd();
 
-        $sql = 'INSERT INTO package (id_city, name, description, price, price_promo, date_start, date_end, id_user) VALUES 
-            (' . $package->getIdCity() . ', "' . $package->getName() . '", 
-            "' . $package->getDescription() . '", ' . $package->getPrice() . ', 
-                ' . $package->getPricePromo() . ', "' . $package->getDateStart() . '", "' . $package->getDateEnd() . '", 
-                    ' . $package->getIdUser() . ')';
+        $sql = "INSERT INTO package (id_city, name, description, price, price_promo, date_start, date_end, id_user, flag, thumbnail) VALUES "
+                . "(" . $package->getIdCity() . ", '" . $package->getName() . "', "
+                . "'" . $package->getDescription() . "', " . $package->getPrice() . ", "
+                . $package->getPricePromo() . ", '" . $package->getDateStart() . "', '" . $package->getDateEnd() . "', "
+                . $package->getIdUser() . ", 1, '".$package->getThumbnail()."')";
 
         $r = $con->prepare($sql);
         $r->execute();
@@ -115,10 +118,10 @@ class packageDAO {
     public function update($package) {
         $con = new bd();
 
-        $sql = 'UPDATE package SET id_city=' . $package->getIdCity() . ', name="' . $package->getName() . '", 
-            description="' . $package->getDescription() . '", price=' . $package->getPrice() . ', 
-                price_promo=' . $package->getPricePromo() . ', date_start="' . $package->getDateStart() . '", date_end="' . $package->getDateEnd() . '", 
-                    id_user=' . $package->getIdUser() . ' WHERE idpackage=' . $package->getIdPackage();
+        $sql = "UPDATE package SET id_city=" . $package->getIdCity() . ", name='" . $package->getName() . "', "
+                . "description='" . $package->getDescription() . "', price=" . $package->getPrice() . ", "
+                . "price_promo=" . $package->getPricePromo() . ", date_start='" . $package->getDateStart() . "', date_end='" . $package->getDateEnd() . "', "
+                . "id_user=" . $package->getIdUser() . ", thumbnail='".$package->getThumbnail()."' WHERE idpackage=" . $package->getIdPackage();
 
         $r = $con->prepare($sql);
         $r->execute();

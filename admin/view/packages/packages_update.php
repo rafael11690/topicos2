@@ -12,8 +12,6 @@ if (isset($_REQUEST['update_id'])) {
     $controller = new packageDAO();
     $package = $controller->getPackageById($id);
 
-    $controller2 = new cityDAO();
-    $city = $controller2->getCityById($package->getIdCity());
 } else {
     $id=-1;
 }
@@ -40,7 +38,7 @@ if (isset($_REQUEST['update_id'])) {
             </ul>
         </div>
         <div id="content">
-            <form name="packages_remove" method="POST" action="packages_update.php">
+            <form name="packages_update" method="POST" action="update.php">
                 <table id="packages">
                     <tbody>
                         <tr>
@@ -49,13 +47,21 @@ if (isset($_REQUEST['update_id'])) {
                         </tr>
                         <tr>
                             <td>Cidade: </td>
-                        <?php if ($id!=-1) : ?>
-                            <td><?php echo $city->getName(); ?>"</td>
-                        <?php
-                            else :
-                                
+                        <?php if ($id!=-1) :
+                            $controller2 = new cityDAO();
+                            $city = $controller2->getCityById($package->getIdCity());
                         ?>
-                            <td><?php echo $city->getName(); ?>"</td>
+                            <td><?php echo $city->getName(); ?><input type="hidden" name="id_city" value="<?php echo $package->getIdCity(); ?>" /></td>
+                        <?php else : ?>
+                            <td><select name="id_city">
+                        <?php 
+                            $controller2 = new cityDAO();
+                            $cities = $controller2->listCities();
+                            foreach ($cities as $city) {
+                                echo '<option value="'.$city->getIdCity().'">'.$city->getName().'</option>';
+                            }
+                        ?>
+                            </select></td>
                         <?php endif; ?>
                         </tr>
                         <tr>
@@ -64,24 +70,29 @@ if (isset($_REQUEST['update_id'])) {
                         </tr>
                         <tr>
                             <td>Preço promocional: </td>
-                            <td><input type="text" name="price_promo" value="<?php if ($id!=-1) echo $package->getPricePromo(); ?>" /></td>
+                            <td><input type="text" name="pricePromo" value="<?php if ($id!=-1) echo $package->getPricePromo(); ?>" /></td>
                         </tr>
                         <tr>
                             <td>Data início: </td>
-                            <td><input type="text" name="date_start" value="<?php if ($id!=-1) echo $package->getDateStart(); ?>" /></td>
+                            <td><input type="text" name="dateStart" value="<?php if ($id!=-1) echo $package->getDateStart(); ?>" /></td>
                         </tr>
                         <tr>
                             <td>Data final: </td>
-                            <td><input type="text" name="date_end" value="<?php if ($id!=-1) echo $package->getDateEnd(); ?>" /></td>
+                            <td><input type="text" name="dateEnd" value="<?php if ($id!=-1) echo $package->getDateEnd(); ?>" /></td>
                         </tr>
                         <tr>
                             <td>Descrição: </td>
                             <td><textarea name="description"><?php if ($id!=-1) echo $package->getDescription(); ?></textarea></td>
                         </tr>
+                        <tr>
+                            <td>Miniatura: </td>
+                            <td><input type="file" name="thumbnail" /></td>
+                        </tr>
                     </tbody>
                 </table>
-                <input type="hidden" name="type" value="<?php if ($id!=-1) echo 'insert'; else echo 'update'; ?>" />
-                <input type="submit" value="Atualizar" />
+                <input type="hidden" name="idpackage" value="<?php if ($id!=-1) echo $package->getIdPackage(); else echo '0'; ?>" />
+                <input type="hidden" name="type" value="<?php if ($id!=-1) echo 'update'; else echo 'insert'; ?>" />
+                <input type="submit" value="<?php if ($id!=-1) echo 'Atualizar'; else echo 'Inserir'; ?>" />
             </form>
         </div>
     </body>

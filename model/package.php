@@ -12,8 +12,9 @@ class package {
     private $dateEnd;
     private $idUser;
     private $flag;
+    private $thumbnail;
     
-    function __construct($idPackage, $idCity, $name, $description, $price, $pricePromo, $dateStart, $dateEnd, $idUser, $flag) {
+    function __construct($idPackage, $idCity, $name, $description, $price, $pricePromo, $dateStart, $dateEnd, $idUser, $flag, $thumbnail) {
         $this->idPackage = $idPackage;
         $this->idCity = $idCity;
         $this->name = $name;
@@ -24,6 +25,14 @@ class package {
         $this->dateEnd = $dateEnd;
         $this->idUser = $idUser;
         $this->flag = $flag;
+        $this->thumbnail = $thumbnail;
+    }
+    public function getThumbnail() {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail($thumbnail) {
+        $this->thumbnail = $thumbnail;
     }
 
     public function getIdPackage() {

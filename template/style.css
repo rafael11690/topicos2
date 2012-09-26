@@ -1,0 +1,43 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+html, body, #sidebar {
+    height:100%;
+}
+
+body {
+    background: url(../images/bg-body.jpg) repeat-x #fff;
+}
+
+#wrapper {
+    display:block;
+}
+
+#wrapper {
+    width:980px;
+    margin:0 auto;
+    padding:150px 0 0;
+    height:100%;
+    background:#fff;
+}
+
+#sidebar {
+    float:left;
+    width:180px;
+    background:#FC0;
+}
+
+#content {
+    width:100%;
+    margin:0 0 0 180px;
+}
+
+ul, li {
+    list-style:none;
+}
+
+.box {
+    float:left;
+}
