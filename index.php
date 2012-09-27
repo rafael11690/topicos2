@@ -55,6 +55,7 @@ include_once _URL . 'controller/packageDAO.php';
                     ?>
                     <div class="box">
                         <ul>
+                            <li><img src="images/<?php echo $package->getThumbnail(); ?>" width="180px" height="135px" /></li>
                             <li class="city"><?php echo $city->getName(); ?></li>
                             <li class="package"><?php echo $package->getName(); ?></li>
                             <li <?php if ($package->getPricePromo()) echo 'class="old_price"'; ?>>R$<?php echo $package->getPrice(); ?></li>

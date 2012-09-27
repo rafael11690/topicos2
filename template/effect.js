@@ -1,6 +1,6 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+var i=0;
+function effect () {
+    document.getElementById('header').style.backgroundImage = "url(images/bg-top)";
+}
 
-
+setInterval(function(){effect()},3000);
