@@ -28,7 +28,7 @@ if ($_POST['first_name']) {
     $controller = new formDAO();
     $controller->insert($form);
 
-    //header('Location: index.php?ms=1');
+    header('Location: index.php?ms=1');
 }
 
 ?>

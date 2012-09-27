@@ -9,6 +9,7 @@ include_once _URL . 'controller/packageDAO.php';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="template/style.css" rel="stylesheet" type="text/css" />
+        <script src="template/valida.js" type="text/javascript"></script>
         <title>Aoba's Tur</title>
     </head>
     <body>
@@ -65,11 +66,11 @@ include_once _URL . 'controller/packageDAO.php';
                         </tr>
                         <tr>
                             <td class="col_left">Nome:</td>
-                            <td><input type="text" name="first_name" /></td>
+                            <td><input type="text" name="first_name" onblur="reset_color(this);" /></td>
                         </tr>
                         <tr>
                             <td class="col_left">Sobrenome:</td>
-                            <td><input type="text" name="last_name" /></td>
+                            <td><input type="text" name="last_name" onblur="reset_color(this);" /></td>
                         </tr>
                         <tr>
                             <td class="col_left">Quantidade<br />de hóspedes:</td>
@@ -163,13 +164,13 @@ include_once _URL . 'controller/packageDAO.php';
                         </tr>
                         <tr>
                             <td class="col_left">E-mail:</td>
-                            <td><input type="text" name="email" /></td>
+                            <td><input type="text" name="email" onblur="reset_color(this);" /></td>
                         </tr>
                         <tr>
                             <td class="col_left">Telefone:</td>
                             <td>
-                                <input type="text" name="area_code" size="3" maxlength="2" />
-                                <input type="text" name="phone" maxlength="8" />
+                                <input type="text" name="area_code" size="3" maxlength="2" onblur="reset_color(this);" />
+                                <input type="text" name="phone" maxlength="8" onblur="reset_color(this);" />
                             </td>
                         </tr>
                         <tr>
@@ -185,8 +186,8 @@ include_once _URL . 'controller/packageDAO.php';
                             </td>
                         </tr>
                     </table>
-                    <input type="hidden" value="<?php echo $package->setIdPackage(); ?>" name="id_package" />
-                    <input type="submit" value="  Enviar  " onsubmit="valida_form();" />
+                    <input type="hidden" value="<?php echo $package->getIdPackage(); ?>" name="id_package" />
+                    <input type="button" value="  Enviar  " onclick="valida_form(); return false;" />
                 </form>
             </div>
         </div>

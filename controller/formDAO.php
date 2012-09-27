@@ -1,7 +1,8 @@
 <?php
 
+include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/settings.php';
 include_once 'bd.php';
-include_once '../model/form.php';
+include_once _URL . 'model/form.php';
 
 class formDAO {
 
@@ -72,7 +73,7 @@ class formDAO {
     public function insert($form) {
         $con = new bd();
 
-        $sql = "INSERT INTO form_interest (id_package, first_name, last_name, gusts_number, couple_room, individual_room, double_room, triple_room, observation, email, area_code, phone, newsletter) VALUES "
+        $sql = "INSERT INTO form_interest (id_package, first_name, last_name, guests_number, couple_room, individual_room, double_room, triple_room, observation, email, area_code, phone, newsletter) VALUES "
                 . "(" . $form->getIdPackage() . ", '" . $form->getFirstName() . "', "
                 . "'" . $form->getLastName() . "', " . $form->getGuestsNumber() . ", "
                 . $form->getCoupleRoom() . ", " . $form->getIndividualRoom() . ", " . $form->getDoubleRoom() . ", "

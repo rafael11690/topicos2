@@ -102,21 +102,22 @@ ul, li {
     padding: 10px 10px 10px 20px;
 }
 
-#content form table, #cities {
+#content form table, #cities, #reserve {
     padding:15px;
     width:100%;
 }
 
-#content form table td, #cities td {
+#content form table td, #cities td, #reserve td {
     padding:10px;
 }
 
-#content form table th, #cities th {
+#content form table th, #cities th, #reserve th {
     background:#ffcc66;
 }
 
 #content form table tr:nth-child(even),
-#cities tr:nth-child(even) {
+#cities tr:nth-child(even),
+#reserve tr:nth-child(even) {
     background:#ede2b8;
 }
 
