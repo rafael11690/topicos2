@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
 include_once 'bd.php';
 include_once _URL . 'model/package.php';
 
@@ -66,7 +66,7 @@ class packageDAO {
 
         $con = new bd();
 
-        $sql = 'Select * from package WHERE flag=1 AND id_city='.$id;
+        $sql = 'Select * from package WHERE flag=1 AND id_city='.$id.' LIMIT 0,6';
 
         $r = $con->prepare($sql);
         $r->execute();

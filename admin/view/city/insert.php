@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
 include_once _URL . 'controller/cityDAO.php';
 include_once _URL . 'model/city.php';
 
@@ -16,7 +16,7 @@ if ($_POST['name']) {
                 echo "Não foi possível enviar o aquivo. Erro #" . $_FILES["thumbnail"]["error"] . "<br />";
                 die();
             } else {
-                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/images/' . $_FILES["thumbnail"]["name"];
+                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/images/' . $_FILES["thumbnail"]["name"];
                 if (file_exists($url_image)) {
                     echo "O " . $_FILES["thumbnail"]["name"] . " já existe! ";
                     die();

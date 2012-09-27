@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
 include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/cityDAO.php';
 
@@ -11,7 +11,7 @@ $privilege = isLogged();
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../../style/admin.css" rel="stylesheet" type="text/css" />
-        <title>Aoba's Tur - Admin</title>
+        <title>Aoba's Tur - Admin</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <body class="admin">
         <div id="menu">

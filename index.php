@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
 include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/cityDAO.php';
 include_once _URL . 'controller/packageDAO.php';
@@ -10,9 +10,14 @@ include_once _URL . 'controller/packageDAO.php';
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="template/style.css" rel="stylesheet" type="text/css" />
         <title>Aoba's Tur</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="effect.js"></script>
     </head>
     <body>
         <div id="wrapper">
+            <div id="header">
+                <span class="logo">&nbsp;</span>
+            </div>
             <div id="sidebar">
                 <ul>
                     <li class="title">Cidades</li>
@@ -57,7 +62,7 @@ include_once _URL . 'controller/packageDAO.php';
                             <li>R$<?php echo $package->getPricePromo(); ?></li>
                             <?php endif; ?>
                             <li>Partida: <?php echo $package->getDateStart(); ?></li>
-                            <li>Retorno:<?php echo $package->getDateEnd(); ?></li>
+                            <li>Retorno: <?php echo $package->getDateEnd(); ?></li>
                         </ul>
                         <a href="package.php?package=<?php echo $package->getIdPackage(); ?>">Ver mais...</a>
                     </div>

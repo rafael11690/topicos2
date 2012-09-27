@@ -27,6 +27,8 @@ function valida_form() {
         f.phone.style.backgroundColor='#fc6';
         v=false;
     }
+    
+    if (v) f.submit();
 }
 
 function reset_color(elem) {

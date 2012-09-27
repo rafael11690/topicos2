@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
 include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/cityDAO.php';
 include_once _URL . 'controller/packageDAO.php';
@@ -10,7 +10,7 @@ include_once _URL . 'controller/packageDAO.php';
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="template/style.css" rel="stylesheet" type="text/css" />
         <script src="template/valida.js" type="text/javascript"></script>
-        <title>Aoba's Tur</title>
+        <title>Aoba's Tur</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <body>
         <div id="wrapper">
@@ -127,7 +127,7 @@ include_once _URL . 'controller/packageDAO.php';
                             </td>
                         </tr>
                         <tr>
-                            <td class="col_left">Quantidade< de quartos<br />para 2 pessoas:</td>
+                            <td class="col_left">Quantidade de quartos<br />para 2 pessoas:</td>
                             <td>
                                 <select name="double_room">
                                     <option value="0">0</option>
