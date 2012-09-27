@@ -25,7 +25,7 @@ if ($_POST['name']) {
             }
             $thumbnail = $_FILES["file"]["name"];
     } else {
-        $thumbnail = 'a';
+        $thumbnail = '';
     }
 
     $city = new city(

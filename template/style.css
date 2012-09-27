@@ -29,6 +29,12 @@ body {
     background: url(../images/bg-top1.jpg);
 }
 
+#header .logo {
+    background: url(../images/logo.jpg);
+    width:260px;
+    height:150px;
+}
+
 #sidebar {
     float:left;
     width:220px;

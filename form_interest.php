@@ -15,6 +15,9 @@ include_once _URL . 'controller/packageDAO.php';
     </head>
     <body>
         <div id="wrapper">
+            <div id="header">
+                <span class="logo">&nbsp;</span>
+            </div>
             <div id="sidebar">
                 <ul>
                     <li class="title">Cidades</li>

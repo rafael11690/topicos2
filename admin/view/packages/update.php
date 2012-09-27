@@ -27,7 +27,7 @@ if ($_POST['name']) {
             }
             $thumbnail = $_FILES["file"]["name"];
     } else {
-        $thumbnail = 'a';
+        $thumbnail = '';
     }
 
     $package = new package(
@@ -45,7 +45,7 @@ if ($_POST['name']) {
     );
 
     $controller = new packageDAO();
-    print_r($package);
+
     if ($_POST['type'] == 'insert') {
         $controller->insert($package);
         echo $_POST['type'];
