@@ -21,36 +21,35 @@ include_once _URL . 'controller/packageDAO.php';
                 <ul>
                     <li class="title">Cidades</li>
                     <?php
-                    
                     $controller = new cityDAO();
                     $cities = $controller->getCities(0, 30);
                     foreach ($cities as $key => $value) :
-                    ?>
-                    <li><a href="index.php?city=<?php echo $cities[$key]->getIdCity(); ?>"><?php echo $cities[$key]->getName(); ?></a></li>
+                        ?>
+                        <li><a href="index.php?city=<?php echo $cities[$key]->getIdCity(); ?>"><?php echo $cities[$key]->getName(); ?></a></li>
                     <?php endforeach; ?>
                     <li><a href="index.php">Todos os pacotes</a></li>
                 </ul>
             </div>
             <div id="content">
-                    <?php
-                    if ((isset($_GET['page'])) && ($_GET['qty'])) {
-                        $page = $_GET['page'];
-                        $qty = $_GET['qty'];
-                    } else {
-                        $page = 0;
-                        $qty = 9;
-                    }
-                    
-                    $controller2 = new packageDAO();
-                    
-                    if (isset($_GET['city'])) {
-                        $packages = $controller2->getPackagesByIdCity($_GET['city']);
-                    } else {
-                        $packages = $controller2->getPackages($page, $qty);
-                    }
-                    foreach ($packages as $package) :
-                        $controller3 = new cityDAO();
-                        $city = $controller3->getCityById($package->getIdCity());
+                <?php
+                if ((isset($_GET['page'])) && ($_GET['qty'])) {
+                    $page = $_GET['page'];
+                    $qty = $_GET['qty'];
+                } else {
+                    $page = 0;
+                    $qty = 10000;
+                }
+
+                $controller2 = new packageDAO();
+
+                if (isset($_GET['city'])) {
+                    $packages = $controller2->getPackagesByIdCity($_GET['city']);
+                } else {
+                    $packages = $controller2->getPackages($page, $qty);
+                }
+                foreach ($packages as $package) :
+                    $controller3 = new cityDAO();
+                    $city = $controller3->getCityById($package->getIdCity());
                     ?>
                     <div class="box">
                         <ul>
@@ -59,14 +58,14 @@ include_once _URL . 'controller/packageDAO.php';
                             <li class="package"><?php echo $package->getName(); ?></li>
                             <li <?php if ($package->getPricePromo()) echo 'class="old_price"'; ?>>R$<?php echo $package->getPrice(); ?></li>
                             <?php if ($package->getPricePromo()) : ?>
-                            <li>R$<?php echo $package->getPricePromo(); ?></li>
+                                <li>R$<?php echo $package->getPricePromo(); ?></li>
                             <?php endif; ?>
                             <li>Partida: <?php echo $package->getDateStart(); ?></li>
                             <li>Retorno: <?php echo $package->getDateEnd(); ?></li>
                         </ul>
                         <a href="package.php?package=<?php echo $package->getIdPackage(); ?>">Ver mais...</a>
                     </div>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </body>

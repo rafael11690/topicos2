@@ -10,8 +10,8 @@ function logon($login, $password) {
         session_start();
         $_SESSION['login'] = $user->getLogin();
         $_SESSION['privilege'] = $user->getPrivilege();
-
-        header('Location: ../admin/view/packages/packages.php');
+        
+        header('Location: ../admin/view/reserve/reserve.php');
     } else {
         header('Location: ../admin/login.php?ms=0');
         exit("0");

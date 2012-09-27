@@ -15,7 +15,7 @@ if ($_POST['name']) {
                 echo "Não foi possível enviar o aquivo. Erro #" . $_FILES["file"]["error"] . "<br />";
                 die();
             } else {
-                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/images/' . $_FILES["file"]["name"];
+                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/images/' . $_FILES["file"]["name"];
                 if (file_exists($url_image)) {
                     echo "O " . $_FILES["file"]["name"] . " já existe! ";
                     die();
