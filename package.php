@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/settings.php';
 include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/cityDAO.php';
 include_once _URL . 'controller/packageDAO.php';
@@ -9,20 +9,21 @@ include_once _URL . 'controller/packageDAO.php';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="template/style.css" rel="stylesheet" type="text/css" />
-        <title>Aoba's Tur - Admin</title>
+        <title>Aoba's Tur</title>
     </head>
     <body>
         <div id="wrapper">
             <div id="sidebar">
                 <ul>
-                    <li>Cidades</li>
+                    <li class="title">Cidades</li>
                     <?php
                     $controller = new cityDAO();
-                    $cities = $controller->getCities(0, 10);
+                    $cities = $controller->getCities(0, 30);
                     foreach ($cities as $key => $value) :
                         ?>
                         <li><a href="index.php?city=<?php echo $cities[$key]->getIdCity(); ?>"><?php echo $cities[$key]->getName(); ?></a></li>
                     <?php endforeach; ?>
+                    <li><a href="index.php">Todos os pacotes</a></li>
                 </ul>
             </div>
             <div id="content">
@@ -35,18 +36,18 @@ include_once _URL . 'controller/packageDAO.php';
                 $controller3 = new cityDAO();
                 $city = $controller3->getCityById($package->getIdCity());
                 ?>
-                <div class="box">
-                    <ul>
-                        <li><?php echo $package->getName(); ?></li>
-                        <li><?php echo $city->getName(); ?></li>
-                        <li><?php echo $package->getPrice(); ?></li>
-                        <?php if ($package->getPricePromo()) : ?>
-                        <li><?php echo $package->getPricePromo(); ?></li>
-                        <?php endif; ?>
-                        <li><?php echo $package->getDateStart(); ?></li>
-                        <li><?php echo $package->getDateEnd(); ?></li>
-                    </ul>
-                    <a href="insert.php?package=<?php echo $package->getIdPackage(); ?>">Cadastrar</a>
+                <div class="full_package">
+                    <span class="al_center"><img src="<?php echo $city->getThumbnail(); ?>" width="550px" height="412px" /></span>
+                    <h1><?php echo $package->getName(); ?> - <?php echo $city->getName(); ?></h1>
+                    <span><?php echo $city->getDescription(); ?></span>
+                    <span><?php echo $package->getDescription(); ?></span>
+                    <span>Preço: <?php echo $package->getPrice(); ?></span>
+                    <?php if ($package->getPricePromo()) : ?>
+                    <span>Preço promocional: <?php echo $package->getPricePromo(); ?></span>
+                    <?php endif; ?>
+                    <span>Partida: <?php echo $package->getDateStart(); ?></span>
+                    <span>Retorno: <?php echo $package->getDateEnd(); ?></span>
+                    <a href="form_interest.php?package=<?php echo $package->getIdPackage(); ?>">Fazer reserva?</a>
                 </div>
                 <?php
                 endif;

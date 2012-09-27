@@ -9,7 +9,8 @@ html, body {
 
 body {
     margin:auto 10px;
-    background:#FC0;
+    background:url(../images/bg-body.jpg) 0 0 no-repeat #FC0;
+    background-attachment: fixed;
 }
 
 ul, li {
@@ -28,6 +29,8 @@ ul, li {
     display:block;
     padding:25px 35px;
     font-size:20px;
+    font-weight: bold;
+    color:#000;
 }
 
 #sidebar {
@@ -40,6 +43,8 @@ ul, li {
     margin:0 180px 0 0;
     height:90%;
     display:block;
+    background:url(../images/bg-content.jpg) 0 0 no-repeat #fff;
+    background-attachment: fixed;
 }
 
 /* Login */
@@ -71,3 +76,55 @@ ul, li {
 	color:#f00;
 }
 
+#sidebar a {
+    background: #FFB515;
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px;
+    color: white !important;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    position: relative;
+    cursor: pointer;
+    overflow: visible;
+    width: 70%;
+}
+
+#sidebar a:hover {
+    padding: 10px 10px 10px 20px;
+}
+
+#content form table, #cities {
+    padding:15px;
+    width:100%;
+}
+
+#content form table td, #cities td {
+    padding:10px;
+}
+
+#content form table th, #cities th {
+    background:#ffcc66;
+}
+
+#content form table tr:nth-child(even),
+#cities tr:nth-child(even) {
+    background:#ede2b8;
+}
+
+#content {
+    overflow: auto;
+}
+
+input[type="button"], input[type="submit"] {
+    margin:5px;
+    padding:10px 20px;
+}

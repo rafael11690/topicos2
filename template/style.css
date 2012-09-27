@@ -25,13 +25,14 @@ body {
 
 #sidebar {
     float:left;
-    width:180px;
+    width:220px;
     background:#FC0;
 }
 
 #content {
-    width:800px;
-    margin:0 0 0 180px;
+    width:660px;
+    margin:0 0 0 220px;
+    padding:50px 25px 25px 50px;
 }
 
 ul, li {
@@ -40,4 +41,83 @@ ul, li {
 
 .box {
     float:left;
+    padding:15px;
+    width:180px;
+    height:335px;
+    margin:5px;
+    background: #ffe;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
+
+.box li, .box a {
+    display:block;
+    padding:0 0 5px;
+    width:100%;
+    text-align: center;
+}
+
+.box .package {
+    font-size: 16px;
+}
+
+.box .city {
+    font-size: 18px;
+    font-weight: bold;
+    color:#06f;
+}
+
+#sidebar ul {
+    margin:0 0 0 30px;
+}
+
+#sidebar li {
+    list-style: circle;
+    margin:10px 10px 0 10px;
+}
+
+#sidebar li.title {
+    list-style: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#sidebar a {
+    font-size: 14px;
+    color:#000;
+    text-decoration: none;
+}
+
+#sidebar a:hover {
+    text-decoration: underline;
+}
+
+.old_price {
+    text-decoration: line-through;
+    color:#f33;
+}
+
+.al_center {
+    text-align: center;
+}
+
+.full_package span {
+    width:100%;
+    display:block;
+    padding:0 0 5px;
+}
+
+#form_interest td {
+    padding:8px;
+}
+
+#form_interest .col_left {
+    text-align: right;
+    font-weight: bold;
+}
+
+input[type="button"], input[type="submit"] {
+    margin:5px;
+    padding:10px 20px;
 }

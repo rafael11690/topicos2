@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/settings.php';
 include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/cityDAO.php';
 
@@ -11,7 +11,7 @@ if ((isset($_GET['page'])) && ($_GET['qty'])) {
     $qty = $_GET['qty'];
 } else {
     $page = 0;
-    $qty = 10;
+    $qty = 30;
 }
 
 $controller = new cityDAO();
@@ -24,7 +24,7 @@ $cities = $controller->getCities($page, $qty);
         <link href="../../style/admin.css" rel="stylesheet" type="text/css" />
         <title>Aoba's Tur - Admin</title>
     </head>
-    <body>
+    <body class="admin">
         <div id="menu">
             <?php
             getMenuAdmin($privilege);
