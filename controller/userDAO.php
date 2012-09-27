@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/settings.php';
 include_once 'bd.php';
 include_once _URL.'model/user.php';
 

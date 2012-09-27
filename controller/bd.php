@@ -7,7 +7,7 @@ class bd extends PDO {
     //private $user = 'dietsmar_topico2';
     private $user = 'root';
     //private $password = '123mudar';
-    private $password = '';
+    private $password = 'root';
     private static $link = null;
 
     function __construct() {
