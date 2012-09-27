@@ -48,7 +48,7 @@ include_once _URL . 'controller/packageDAO.php';
                         </tr>
                         <tr>
                             <td class="col_left">Preço:</td>
-                            <td class="old_price"><?php echo $package->getPrice(); ?></td>
+                            <td <?php if ($package->getPricePromo()) echo 'class="old_price"'; ?>><?php echo $package->getPrice(); ?></td>
                         </tr>
                         <?php if ($package->getPricePromo()) : ?>
                             <tr>
