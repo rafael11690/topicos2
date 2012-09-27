@@ -66,7 +66,7 @@ class packageDAO {
 
         $con = new bd();
 
-        $sql = 'Select * from package WHERE flag=1 AND id_city='.$id.' LIMIT 0,6';
+        $sql = 'Select * from package WHERE flag=1 AND id_city='.$id;
 
         $r = $con->prepare($sql);
         $r->execute();

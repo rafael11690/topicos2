@@ -7,11 +7,10 @@ include_once _URL . 'controller/packageDAO.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="template/style.css" rel="stylesheet" type="text/css" />
         <title>Aoba's Tur</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script src="effect.js"></script>
+        <script src="template/effect.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -39,7 +38,7 @@ include_once _URL . 'controller/packageDAO.php';
                         $qty = $_GET['qty'];
                     } else {
                         $page = 0;
-                        $qty = 6;
+                        $qty = 9;
                     }
                     
                     $controller2 = new packageDAO();

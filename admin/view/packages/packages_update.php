@@ -38,7 +38,7 @@ if (isset($_REQUEST['update_id'])) {
             </ul>
         </div>
         <div id="content">
-            <form name="packages_update" method="POST" action="update.php">
+            <form name="packages_update" method="POST" action="update.php" enctype="multipart/form-data">
                 <table id="packages">
                     <tbody>
                         <tr>
@@ -86,7 +86,7 @@ if (isset($_REQUEST['update_id'])) {
                         </tr>
                         <tr>
                             <td>Miniatura: </td>
-                            <td><input type="file" name="thumbnail" /></td>
+                            <td><input type="file" name="file" /></td>
                         </tr>
                     </tbody>
                 </table>

@@ -8,27 +8,26 @@ if ($_POST['name']) {
 
     $pricePromo = (isset($_POST['pricePromo']) && ($_POST['pricePromo'] != "")) ? $_POST['pricePromo'] : 'NULL';
 
-    if ((isset($_FILES["thumbnail"]))
-            && (($_FILES["thumbnail"]["type"] == "image/gif")
-            || ($_FILES["thumbnail"]["type"] == "image/jpeg")
-            || ($_FILES["thumbnail"]["type"] == "image/pjpeg"))) {
+    if ((isset($_FILES))
+            && (($_FILES["file"]["type"] == "image/gif")
+            || ($_FILES["file"]["type"] == "image/jpeg")
+            || ($_FILES["file"]["type"] == "image/pjpeg"))) {
 
-
-            if ($_FILES["thumbnail"]["error"] > 0) {
-                echo "Não foi possível enviar o aquivo. Erro #" . $_FILES["thumbnail"]["error"] . "<br />";
+            if ($_FILES["file"]["error"] > 0) {
+                echo "Não foi possível enviar o aquivo. Erro #" . $_FILES["file"]["error"] . "<br />";
                 die();
             } else {
-                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/images/' . $_FILES["thumbnail"]["name"];
+                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/images/' . $_FILES["file"]["name"];
                 if (file_exists($url_image)) {
-                    echo "O " . $_FILES["thumbnail"]["name"] . " já existe! ";
+                    echo "O " . $_FILES["file"]["name"] . " já existe! ";
                     die();
                 } else {
-                    move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $url_image);
+                    move_uploaded_file($_FILES["file"]["tmp_name"], $url_image.date());
                 }
             }
-            $thumbnail = $_FILES["thumbnail"]["tmp_name"];
+            $thumbnail = $_FILES["file"]["name"];
     } else {
-        $thumbnail = '';
+        $thumbnail = 'a';
     }
 
     $package = new package(

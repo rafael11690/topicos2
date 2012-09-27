@@ -25,7 +25,7 @@ $privilege = isLogged();
             </ul>
         </div>
         <div id="content">
-            <form name="city_insert" method="POST" action="insert.php">
+            <form name="city_insert" method="POST" action="insert.php" enctype="multipart/form-data">
                 <table id="city">
                     <tbody>
                         <tr>
@@ -46,7 +46,7 @@ $privilege = isLogged();
                         </tr>
                         <tr>
                             <td>Miniatura: </td>
-                            <td><input type="file" name="thumbnail" /></td>
+                            <td><input type="file" name="file" /></td>
                         </tr>
                     </tbody>
                 </table>
