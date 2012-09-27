@@ -37,7 +37,7 @@ include_once _URL . 'controller/packageDAO.php';
                 $city = $controller3->getCityById($package->getIdCity());
                 ?>
                 <div class="full_package">
-                    <span class="al_center"><img src="<?php echo $city->getThumbnail(); ?>" width="550px" height="412px" /></span>
+                    <span class="al_center"><img src="images/<?php echo $city->getThumbnail(); ?>" width="550px" height="412px" /></span>
                     <h1><?php echo $package->getName(); ?> - <?php echo $city->getName(); ?></h1>
                     <span><?php echo $city->getDescription(); ?></span>
                     <span><?php echo $package->getDescription(); ?></span>
