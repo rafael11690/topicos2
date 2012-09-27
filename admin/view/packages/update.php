@@ -17,17 +17,17 @@ if ($_POST['name']) {
                 echo "Não foi possível enviar o aquivo. Erro #" . $_FILES["file"]["error"] . "<br />";
                 die();
             } else {
-                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/topicos2/images/' . $_FILES["file"]["name"];
+                $url_image = $_SERVER['DOCUMENT_ROOT'] . '/topicos2/images/' . $_FILES["file"]["name"];
                 if (file_exists($url_image)) {
                     echo "O " . $_FILES["file"]["name"] . " já existe! ";
                     die();
                 } else {
-                    move_uploaded_file($_FILES["file"]["tmp_name"], $url_image.date());
+                    move_uploaded_file($_FILES["file"]["tmp_name"], $url_image);
                 }
             }
             $thumbnail = $_FILES["file"]["name"];
     } else {
-        $thumbnail = 'a';
+        $thumbnail = '';
     }
 
     $package = new package(
@@ -45,7 +45,7 @@ if ($_POST['name']) {
     );
 
     $controller = new packageDAO();
-    print_r($package);
+
     if ($_POST['type'] == 'insert') {
         $controller->insert($package);
         echo $_POST['type'];
