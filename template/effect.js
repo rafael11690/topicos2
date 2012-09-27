@@ -1,6 +1,10 @@
-var i=0;
+var i=1;
+var qty = 3;
 function effect () {
-    document.getElementById('header').style.backgroundImage = "url(images/bg-top)";
+    i++;
+    if (i>qty) i=0;
+    var _url = "url(images/bg-top"+i+".jpg)";
+    document.getElementById('header').style.backgroundImage = _url;
 }
 
 setInterval(function(){effect()},3000);
