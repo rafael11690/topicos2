@@ -1,11 +1,13 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/topicos2/settings.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/topicos2/settings.php';
 include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/packageDAO.php';
 include_once _URL . 'controller/cityDAO.php';
 
 $privilege = isLogged();
-
+if ($privilege != 0) {
+    header("location: ../../login.php?ms=2");
+}
 if ((isset($_GET['page'])) && ($_GET['qty'])) {
     $page = $_GET['page'];
     $qty = $_GET['qty'];
@@ -13,7 +15,6 @@ if ((isset($_GET['page'])) && ($_GET['qty'])) {
     $page = 0;
     $qty = 30;
 }
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,7 +40,7 @@ if ((isset($_GET['page'])) && ($_GET['qty'])) {
             <form name="packages_remove" method="POST" action="remove.php">
                 <table id="packages">
                     <thead>
-                        <th><input type="checkbox" id="selectAll" /></th>
+                            <th><!--<input type="checkbox" id="selectAll" />-->&nbsp;</th>
                         <th>Nome</th>
                         <th>Preço</th>
                         <th>Preço promocional</th>
@@ -49,15 +50,13 @@ if ((isset($_GET['page'])) && ($_GET['qty'])) {
                     </thead>
                     <tbody>
                         <?php
-                        
                         $controller = new packageDAO();
                         $packages = $controller->getPackages($page, $qty);
 
                         foreach ($packages as $key => $value) :
-                            
+
                             $controller2 = new cityDAO();
                             $city = $controller2->getCityById($packages[$key]->getIdCity());
-                            
                             ?>
                             <tr>
                                 <td><input type="checkbox" name="remove_id[]" value="<?php echo $packages[$key]->getIdPackage(); ?>" /></td>
@@ -68,7 +67,7 @@ if ((isset($_GET['page'])) && ($_GET['qty'])) {
                                 <td><?php echo $packages[$key]->getDateEnd(); ?></td>
                                 <td><?php echo $city->getName(); ?></td>
                             </tr>
-                        <?php endforeach; ?>
+<?php endforeach; ?>
                     </tbody>
                 </table>
                 <input type="submit" value="Deletar" />

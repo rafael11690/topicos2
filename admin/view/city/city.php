@@ -5,7 +5,9 @@ include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/cityDAO.php';
 
 $privilege = isLogged();
-
+if($privilege!=0){
+    header("location: ../../login.php?ms=2");
+}
 if ((isset($_GET['page'])) && ($_GET['qty'])) {
     $page = $_GET['page'];
     $qty = $_GET['qty'];

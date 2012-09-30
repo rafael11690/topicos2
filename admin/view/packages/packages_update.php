@@ -5,7 +5,9 @@ include_once _URL . 'controller/packageDAO.php';
 include_once _URL . 'controller/cityDAO.php';
 
 $privilege = isLogged();
-
+if($privilege!=0){
+    header("location: ../../login.php?ms=2");
+}
 if (isset($_REQUEST['update_id'])) {
     $id = $_REQUEST['update_id'];
     

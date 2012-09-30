@@ -10,7 +10,7 @@ function logon($login, $password) {
         session_start();
         $_SESSION['login'] = $user->getLogin();
         $_SESSION['privilege'] = $user->getPrivilege();
-        
+
         header('Location: ../admin/view/reserve/reserve.php');
     } else {
         header('Location: ../admin/login.php?ms=0');
@@ -43,6 +43,7 @@ function getMenuAdmin($privilege) {
               <li><a href="' . _HTTP . 'admin/view/city/city.php">Cidades</a></li>';
     }
     echo '<li><a href="' . _HTTP . 'admin/view/reserve/reserve.php">Reservas</a></li>
+          <li><a href="../../logout.php">Sair</a></li>
           </ul>';
 }
 

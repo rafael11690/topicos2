@@ -4,7 +4,9 @@ include_once _URL . 'controller/core.php';
 include_once _URL . 'controller/cityDAO.php';
 
 $privilege = isLogged();
-
+if($privilege!=0){
+    header("location: ../../login.php?ms=2");
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

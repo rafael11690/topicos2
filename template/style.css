@@ -30,9 +30,11 @@ body {
 }
 
 #header .logo {
-    background: url(../images/logo.jpg);
+    background: url(../images/logo.png);
     width:260px;
     height:150px;
+    margin: 0 0 0 370px;
+    display: block;
 }
 
 #sidebar {
@@ -58,7 +60,7 @@ ul, li {
     width:180px;
     height:335px;
     margin:5px;
-    background: #ffe;
+    background: #ffc;
     -webkit-border-radius: 18px;
     -moz-border-radius: 18px;
     border-radius: 18px;

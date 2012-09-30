@@ -60,7 +60,7 @@ class cityDAO {
 
         $con = new bd();
 
-        $sql = 'Select * from city LIMIT ' . $page . ',' . $qty;
+        $sql = 'Select * from city  ORDER BY name LIMIT ' . $page . ',' . $qty;
 
         $r = $con->prepare($sql);
         $r->execute();

@@ -7,4 +7,4 @@ function effect () {
     document.getElementById('header').style.backgroundImage = _url;
 }
 
-setInterval(function(){effect()},5000);
+setInterval(function(){effect()},10000);
